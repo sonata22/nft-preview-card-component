@@ -1,5 +1,9 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Corben&family=Mulish&family=Outfit:wght@300;400;600&family=Raleway:wght@300&display=swap');
+
 #root {
-  max-width: 1080px;
+  min-width: 800px;
+  min-height: 700px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -48,19 +52,4 @@
   height: 30px;
   border-radius: 50%;
   border: 1px solid white;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
 }
