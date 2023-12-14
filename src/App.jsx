@@ -1,4 +1,5 @@
 import './App.css'
+const cyan = "hsl(178, 100%, 50%)";
 
 const nftComponentData = [
   {
@@ -23,47 +24,74 @@ const nftComponentData = [
   },
 ]
 
-const Price = ({price}) => {
+const Price = ({ price }) => {
   const priceElement = {
     display: "flex",
     alignItems: "center",
+    justifyContent: "flex-start",
     position: "relative",
+    gap: "5px",
   };
   const rhombusIconTop = {
-    width: "25px",
-    height: "40px",
-    background: "#2FFFFF",
+    width: "9px",
+    height: "14px",
+    background: cyan,
     clipPath: "polygon(0% 50%, 50% 0%, 100% 50%, 50% 70%)",
-    scale: ".3",
     position: "absolute",
   };
   const rhombusIconBottom = {
-    width: "25px",
-    height: "40px",
-    background: "#2FFFFF",
+    width: "9px",
+    height: "14px",
+    background: cyan,
     clipPath: "polygon(3% 55%, 50% 73%, 97% 55%, 50% 100%)",
-    scale: ".3",
-    position: "absolute",
+    position: "relative",
   };
   const priceText = {
-    color: "#2FFFFF",
-    paddingLeft: "21px",
-    fontFamily: "Outfit",
+    color: cyan,
     fontSize: "11px",
   }
-  return(
+  return (
     <>
       <div style={priceElement}>
-        <div style={rhombusIconTop}></div>
-        <div style={rhombusIconBottom}></div>
+        <div>
+          <div style={rhombusIconTop}></div>
+          <div style={rhombusIconBottom}></div>
+        </div>
         <p style={priceText}>{price + " ETH"}</p>
       </div>
-      
+
     </>
   )
 }
 
+const Author = ({author, authorPic}) => {
+  const authorDiv = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    gap: "10px",
+    marginTop: "10px",
+    marginBottom: "5px",
+  };
+  const authorTextStyle = {
+    margin: "0",
+  };
+
+  return (
+    <div style={authorDiv}>
+      <img src={authorPic} alt={author} className="profilePic" />
+      <p style={authorTextStyle}>Creation of {author}</p>
+    </div>
+  )
+}
+
 const NftComponent = (nftData) => {
+  const divider = {
+    width: "auto",
+    height: "0.5px",
+    background: "hsl(215, 32%, 27%)",
+  }
+
   return (
     <>
       <div className="nft-template">
@@ -74,11 +102,10 @@ const NftComponent = (nftData) => {
           <p>{nftData.data.name} {"#" + nftData.data.uniqueNum}</p>
           <p>Our {nftData.data.collection} collection promotes voxel art.</p>
 
-          
-          <Price price={nftData.data.price}/>
-          
-          <img src={nftData.data.authorPic} alt={nftData.data.author} className="profilePic" />
-          <p>Creation of {nftData.data.author}</p>
+
+          <Price price={nftData.data.price} />
+          <div style={divider}></div>
+          <Author authorPic={nftData.data.authorPic} author={nftData.data.author} />
         </div>
       </div>
     </>
