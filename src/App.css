@@ -5,7 +5,7 @@
   min-width: 800px;
   height: auto;
   padding: 4rem 0 4rem 0;
-  background: hsl(217, 54%, 11%);
+  background: hsl(216, 55%, 11%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,37 +27,8 @@ p {
 .nft-template {
   width: 220px;
   height: auto;
-  background: hsl(216, 50%, 16%);
+  background: hsl(214, 49%, 17%);
   border-radius: 10px;
-  transition: transform .2s;
-  filter: drop-shadow(0 0 1em #0C1729);
+  box-shadow: 0 10px 1em 0px hsl(213, 71%, 8%);
   padding: 15px;
-}
-
-.img-hover-zoom {
-  width: 220px;
-  height: 220px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.img-hover-zoom img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 220px;
-  height: 220px;
-  transform-origin: 50% 50%;
-  transition: transform .5s ease;
-}
-
-.image:hover {
-  transform: scale(1.5);
-}
-
-.profilePic {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: 1px solid hsl(0, 0%, 100%);
 }

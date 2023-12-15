@@ -70,7 +70,6 @@ const Price = ({ price }) => {
         </div>
         <p style={priceText}>{price + " ETH"}</p>
       </div>
-
     </>
   )
 }
@@ -92,15 +91,22 @@ const Author = ({ author, authorPic }) => {
   const authorInscriptionStyle = {
     display: "flex",
     flexDirection: "column",
-  }
+  };
   const authorInitialsStyle = {
     margin: "0",
     color: textColor,
     cursor: cursor,
-  }
+  };
+  const authorProfilePicStyle = {
+    width: "25px",
+    height: "25px",
+    borderRadius: "50%",
+    border: "1px solid hsl(0, 0%, 100%)",
+  };
+
   return (
     <div style={authorDiv}>
-      <img src={authorPic} alt={author} className="profilePic" />
+      <img style={authorProfilePicStyle} src={authorPic} alt={author} className="profilePic" />
       <div style={authorInscriptionStyle}>
         <p style={authorTextStyle}>Creation of </p>
         <p
@@ -118,6 +124,8 @@ const Author = ({ author, authorPic }) => {
 const NftComponent = (nftData) => {
   const [textColor, setTextColor] = useState(white);
   const [cursor, setCursor] = useState("default");
+  const [opacity, setOpacity] = useState("0");
+  const [eyeIconOpacity, setEyeIconOpacity] = useState("0");
   const getUniqueId = (id) => "#" + "0".repeat(4 - String(id).length) + id;
   const divider = {
     width: "auto",
@@ -125,19 +133,58 @@ const NftComponent = (nftData) => {
     background: "hsl(215, 32%, 27%)",
   };
   const nftTitleStyle = {
+    width: "auto",
     color: textColor,
-    fontSize: "15px",
+    fontSize: "15.5px",
     fontWeight: "600",
     cursor: cursor,
   };
   const paragraphTextStyle = {
     margin: "5px 0 5px 0",
-  }
+  };
+  const nftImg = {
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "220px",
+    height: "220px",
+    borderRadius: "5px",
+  };
+  const nftImgHoverBg = {
+    width: "220px",
+    height: "220px",
+    borderRadius: "5px",
+    opacity: ".5",
+    position: "absolute",
+    background: cyan,
+    opacity: opacity,
+  };
+  const eyeIconStyle = {
+    position: "absolute",
+    opacity: eyeIconOpacity,
+  };
+  const imgWithHoverStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
   return (
     <>
       <div className="nft-template">
-        <div className="img-hover-zoom">
-          <img src={nftData.data.image} alt={nftData.data.name} className="image" />
+        <div
+          style={imgWithHoverStyle}
+          onMouseEnter={() => { setEyeIconOpacity("1"); setOpacity("0.7"); }}
+          onMouseLeave={() => { setEyeIconOpacity("0"); setOpacity("0"); }}
+        >
+          <div style={nftImgHoverBg}></div>
+          <svg style={eyeIconStyle} xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-.449s-4.252 8.449-11.985 8.449c-7.18 0-12.015-8.449-12.015-8.449s4.446-7.551 12.015-7.551c7.694 0 11.985 7.551 11.985 7.551zm-7 .449c0-2.757-2.243-5-5-5s-5 2.243-5 5 2.243 5 5 5 5-2.243 5-5z" fill="#ffffff" /></svg>
+          <img
+            style={nftImg}
+            src={nftData.data.image}
+            alt={nftData.data.name}
+            className="image"
+          />
         </div>
         <div>
           <p
@@ -147,7 +194,6 @@ const NftComponent = (nftData) => {
           >
             {nftData.data.name} {getUniqueId(nftData.data.id)}</p>
           <p style={paragraphTextStyle}>Our {nftData.data.collection} collection aims to highlight the warm memories that we keep safely in our hearts throughout our lives, in the midst of this world full of injustice and delusion.</p>
-
 
           <Price price={nftData.data.price} />
           <div style={divider}></div>
