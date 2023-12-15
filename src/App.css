@@ -1,17 +1,12 @@
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Corben&family=Mulish&family=Outfit:wght@300;400;600&family=Raleway:wght@300&display=swap');
-
 #root {
   min-width: 800px;
-  height: auto;
-  padding: 4rem 0 4rem 0;
+  min-height: auto;
+  padding: 6rem 0 6rem 0;
   background: hsl(216, 55%, 11%);
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: flex-start;
-  flex-wrap: wrap;
-  gap: 30px;
   margin: 0;
 }
 
@@ -24,11 +19,6 @@ p {
   font-weight: 300;
 }
 
-.nft-template {
-  width: 220px;
-  height: auto;
-  background: hsl(214, 49%, 17%);
-  border-radius: 10px;
-  box-shadow: 0 10px 1em 0px hsl(213, 71%, 8%);
-  padding: 15px;
+body {
+  margin: 0px;
 }

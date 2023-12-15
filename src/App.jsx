@@ -44,25 +44,31 @@ const Price = ({ price }) => {
     gap: "5px",
   };
   const rhombusIconTop = {
-    width: "9px",
-    height: "14px",
+    width: "8px",
+    height: "13px",
     background: cyan,
     clipPath: "polygon(0% 50%, 50% 0%, 100% 50%, 50% 70%)",
     position: "absolute",
   };
   const rhombusIconBottom = {
-    width: "9px",
-    height: "14px",
+    width: "8px",
+    height: "13px",
     background: cyan,
     clipPath: "polygon(3% 55%, 50% 73%, 97% 55%, 50% 100%)",
     position: "relative",
   };
   const priceText = {
     color: cyan,
-    fontSize: "11px",
+    fontSize: "12px",
   }
+  const priceAndExpDate = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  }
+
   return (
-    <>
+    <div style={priceAndExpDate}>
       <div style={priceElement}>
         <div>
           <div style={rhombusIconTop}></div>
@@ -70,7 +76,11 @@ const Price = ({ price }) => {
         </div>
         <p style={priceText}>{price + " ETH"}</p>
       </div>
-    </>
+      <div style={priceElement}>
+        <svg width="10px" height="10px" viewBox="0 0 24 24" id="meteor-icon-kit__solid-clock" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M13 11V4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V12C11 12.5523 11.4477 13 12 13H18C18.5523 13 19 12.5523 19 12C19 11.4477 18.5523 11 18 11H13ZM12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24Z" fill="hsl(215, 51%, 70%)" /></svg>
+        <p>2 days left</p>
+      </div>
+    </div>
   )
 }
 
@@ -168,10 +178,20 @@ const NftComponent = (nftData) => {
     justifyContent: "center",
     alignItems: "center",
   };
-
+  const nftTemplate = {
+    width: "220px",
+    height: "auto",
+    background: "#15273F",
+    borderRadius: "10px",
+    boxShadow: "0 10px 1em 0px #061323",
+    padding: "15px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+  }
   return (
     <>
-      <div className="nft-template">
+      <div style={nftTemplate}>
         <div
           style={imgWithHoverStyle}
           onMouseEnter={() => { setEyeIconOpacity("1"); setOpacity("0.7"); }}
@@ -205,35 +225,18 @@ const NftComponent = (nftData) => {
 }
 
 function App() {
-  const h1Style = {
-    fontFamily: "Outfit",
-    marginTop: "15px",
-    marginBottom: "15px",
-    fontSize: "25px",
-    color: white,
-    fontWeight: "600",
-  };
   const nfts = {
     display: "flex",
     gap: "20px",
   }
-  const rootDivStyle = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "15px",
-  }
+
   return (
-    <div style={rootDivStyle}>
-      <h1 style={h1Style}>NFT Preview Card Template</h1>
-      <div style={nfts}>
-        {
-          nftComponentData.map(
-            (nftData) => <NftComponent data={nftData} key={nftData.id} />
-          )
-        }
-      </div>
+    <div style={nfts}>
+      {
+        nftComponentData.map(
+          (nftData) => <NftComponent data={nftData} key={nftData.id} />
+        )
+      }
     </div>
   )
 }
