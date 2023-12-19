@@ -1,6 +1,7 @@
 ## NFT Component Card React Template
 
-[Preview on Codepen](https://codepen.io/sonata22/full/GRzbdYZ)
+[Demo on Codepen](https://codepen.io/sonata22/full/GRzbdYZ) | 
+[Demo on GitHub Pages](https://sonata22.github.io/nft-preview-card-component/)
 
 ![image](https://github.com/sonata22/nft-preview-card-component/assets/112934863/f216411e-43d3-4593-863c-9fc60cd5cd12)
 
